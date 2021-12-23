@@ -7,18 +7,20 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.Button;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
 
-public class Home extends JFrame {
+public class Login extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField loginField;
+	private JPasswordField passwordField;
 
 	/**
 	 * Launch the application.
@@ -39,7 +41,7 @@ public class Home extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Home() {
+	public Login() {
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Home.class.getResource("/layouts/biblioindex.jpg")));
 		setBackground(new Color(65, 105, 225));
@@ -56,10 +58,10 @@ public class Home extends JFrame {
 		panel.setBounds(0, 54, 674, 10);
 		contentPane.add(panel);
 		// comment
-		JLabel lblNewLabel = new JLabel("Bienvenue a votre Librairie");
+		JLabel lblNewLabel = new JLabel("Login a votre Librairie");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.ITALIC, 32));
 		lblNewLabel.setForeground(new Color(240, 255, 255));
-		lblNewLabel.setBounds(169, 11, 410, 32);
+		lblNewLabel.setBounds(191, 11, 410, 32);
 		contentPane.add(lblNewLabel);
 		
 		JPanel panel_1 = new JPanel();
@@ -70,8 +72,6 @@ public class Home extends JFrame {
 		
 		loginBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Login loginInterface = new Login();
-				loginInterface.setVisible(true);
 			}
 		});
 		loginBtn.setForeground(new Color(255, 255, 255));
@@ -95,11 +95,9 @@ public class Home extends JFrame {
 		registerBtn.setBounds(10, 151, 153, 42);
 		contentPane.add(registerBtn);
 		
-		JButton catalogueBtn = new JButton("Emprunter");
+		JButton catalogueBtn = new JButton("Catalogue");
 		catalogueBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				EmprunterLivre empruneter = new EmprunterLivre();
-				empruneter.setVisible(true);
 			}
 		});
 		catalogueBtn.setForeground(new Color(255, 255, 255));
@@ -117,13 +115,38 @@ public class Home extends JFrame {
 		catalogueBtn_1.setBounds(10, 273, 153, 42);
 		contentPane.add(catalogueBtn_1);
 		
-		JButton registerBtn_1 = new JButton("");
-		registerBtn_1.setIcon(new ImageIcon(Home.class.getResource("/layouts/biblioindex.jpg")));
-		registerBtn_1.setForeground(Color.WHITE);
-		registerBtn_1.setFont(new Font("Times New Roman", Font.ITALIC, 14));
-		registerBtn_1.setBackground(new Color(153, 0, 255));
-		registerBtn_1.setActionCommand("Login");
-		registerBtn_1.setBounds(199, 75, 475, 265);
-		contentPane.add(registerBtn_1);
+		loginField = new JTextField();
+		loginField.setBackground(new Color(255, 255, 204));
+		loginField.setBounds(368, 138, 189, 32);
+		contentPane.add(loginField);
+		loginField.setColumns(10);
+		
+		JButton loginToYourAccountBtn = new JButton("Login");
+		loginToYourAccountBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AdminPanel adminPanel = new AdminPanel();
+				adminPanel.setVisible(true);
+			}
+		});
+		loginToYourAccountBtn.setBackground(new Color(153, 51, 255));
+		loginToYourAccountBtn.setBounds(368, 257, 189, 34);
+		contentPane.add(loginToYourAccountBtn);
+		
+		JLabel lblNewLabel_1 = new JLabel("Login");
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblNewLabel_1.setBounds(253, 147, 46, 14);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("Password");
+		lblNewLabel_1_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1_1.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblNewLabel_1_1.setBounds(253, 211, 75, 23);
+		contentPane.add(lblNewLabel_1_1);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBackground(new Color(255, 255, 204));
+		passwordField.setBounds(368, 199, 189, 35);
+		contentPane.add(passwordField);
 	}
 }

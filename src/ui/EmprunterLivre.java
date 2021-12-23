@@ -15,10 +15,16 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Button;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import com.toedter.calendar.JDateChooser;
+import com.toedter.components.JLocaleChooser;
+import com.toedter.components.JSpinField;
 
-public class Home extends JFrame {
+public class EmprunterLivre extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -39,7 +45,7 @@ public class Home extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Home() {
+	public EmprunterLivre() {
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Home.class.getResource("/layouts/biblioindex.jpg")));
 		setBackground(new Color(65, 105, 225));
@@ -56,30 +62,16 @@ public class Home extends JFrame {
 		panel.setBounds(0, 54, 674, 10);
 		contentPane.add(panel);
 		// comment
-		JLabel lblNewLabel = new JLabel("Bienvenue a votre Librairie");
+		JLabel lblNewLabel = new JLabel("Emprunter Un Livre");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.ITALIC, 32));
 		lblNewLabel.setForeground(new Color(240, 255, 255));
-		lblNewLabel.setBounds(169, 11, 410, 32);
+		lblNewLabel.setBounds(214, 11, 410, 32);
 		contentPane.add(lblNewLabel);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(148, 0, 211));
 		panel_1.setBounds(179, 64, 10, 276);
 		contentPane.add(panel_1);
-		JButton loginBtn = new JButton("Login");
-		
-		loginBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Login loginInterface = new Login();
-				loginInterface.setVisible(true);
-			}
-		});
-		loginBtn.setForeground(new Color(255, 255, 255));
-		loginBtn.setFont(new Font("Times New Roman", Font.ITALIC, 14));
-		loginBtn.setBackground(new Color(153, 0, 255));
-		loginBtn.setActionCommand("Login");
-		loginBtn.setBounds(10, 92, 153, 42);
-		contentPane.add(loginBtn);
 		
 		JButton registerBtn = new JButton("Inscription");
 		registerBtn.addActionListener(new ActionListener() {
@@ -92,21 +84,19 @@ public class Home extends JFrame {
 		registerBtn.setForeground(new Color(255, 255, 255));
 		registerBtn.setBackground(new Color(153, 0, 255));
 		registerBtn.setActionCommand("Login");
-		registerBtn.setBounds(10, 151, 153, 42);
+		registerBtn.setBounds(10, 75, 153, 42);
 		contentPane.add(registerBtn);
 		
 		JButton catalogueBtn = new JButton("Emprunter");
 		catalogueBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				EmprunterLivre empruneter = new EmprunterLivre();
-				empruneter.setVisible(true);
 			}
 		});
 		catalogueBtn.setForeground(new Color(255, 255, 255));
 		catalogueBtn.setFont(new Font("Times New Roman", Font.ITALIC, 14));
 		catalogueBtn.setBackground(new Color(153, 0, 255));
 		catalogueBtn.setActionCommand("Login");
-		catalogueBtn.setBounds(10, 213, 153, 42);
+		catalogueBtn.setBounds(10, 144, 153, 42);
 		contentPane.add(catalogueBtn);
 		
 		JButton catalogueBtn_1 = new JButton("Catalogue");
@@ -114,16 +104,64 @@ public class Home extends JFrame {
 		catalogueBtn_1.setFont(new Font("Times New Roman", Font.ITALIC, 14));
 		catalogueBtn_1.setBackground(new Color(153, 0, 255));
 		catalogueBtn_1.setActionCommand("Login");
-		catalogueBtn_1.setBounds(10, 273, 153, 42);
+		catalogueBtn_1.setBounds(10, 211, 153, 42);
 		contentPane.add(catalogueBtn_1);
 		
-		JButton registerBtn_1 = new JButton("");
-		registerBtn_1.setIcon(new ImageIcon(Home.class.getResource("/layouts/biblioindex.jpg")));
-		registerBtn_1.setForeground(Color.WHITE);
-		registerBtn_1.setFont(new Font("Times New Roman", Font.ITALIC, 14));
-		registerBtn_1.setBackground(new Color(153, 0, 255));
-		registerBtn_1.setActionCommand("Login");
-		registerBtn_1.setBounds(199, 75, 475, 265);
-		contentPane.add(registerBtn_1);
+		JLabel lblVerfierLexistanceDe = new JLabel("Emprunter un Livre");
+		lblVerfierLexistanceDe.setForeground(new Color(240, 255, 255));
+		lblVerfierLexistanceDe.setFont(new Font("Times New Roman", Font.ITALIC, 12));
+		lblVerfierLexistanceDe.setBounds(343, 57, 153, 32);
+		contentPane.add(lblVerfierLexistanceDe);
+		
+		JLabel lblCin = new JLabel("CIN:");
+		lblCin.setForeground(new Color(240, 255, 255));
+		lblCin.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblCin.setBounds(199, 118, 30, 32);
+		contentPane.add(lblCin);
+		
+		textField = new JTextField();
+		textField.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		textField.setBackground(new Color(255, 255, 204));
+		textField.setForeground(new Color(0, 0, 0));
+		textField.setBounds(214, 161, 134, 32);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblNomComplet = new JLabel("Livre");
+		lblNomComplet.setForeground(new Color(240, 255, 255));
+		lblNomComplet.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblNomComplet.setBounds(377, 118, 86, 32);
+		contentPane.add(lblNomComplet);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setForeground(new Color(153, 51, 255));
+		comboBox.setBackground(new Color(255, 255, 204));
+		comboBox.setBounds(377, 161, 134, 33);
+		comboBox.addItem("----------");
+		comboBox.addItem("Etudiant");
+		comboBox.addItem("Professeur");
+		contentPane.add(comboBox);
+		
+		JLabel lblDate = new JLabel("Date");
+		lblDate.setForeground(new Color(240, 255, 255));
+		lblDate.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblDate.setBounds(554, 122, 30, 25);
+		contentPane.add(lblDate);
+		
+		JDateChooser dateChooser = new JDateChooser();
+		dateChooser.setBounds(554, 161, 110, 32);
+		dateChooser.setForeground(new Color(153, 51, 255));
+		contentPane.add(dateChooser);
+		
+		JButton btnNewButton = new JButton("Emprunter");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton.setBackground(new Color(153, 51, 255));
+		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		btnNewButton.setForeground(new Color(255, 255, 255));
+		btnNewButton.setBounds(306, 222, 291, 31);
+		contentPane.add(btnNewButton);
 	}
 }
