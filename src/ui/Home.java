@@ -1,21 +1,19 @@
 package ui;
 
-import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.Color;
-import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.Canvas;
-import java.awt.Toolkit;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class Home extends JFrame {
 
@@ -55,7 +53,7 @@ public class Home extends JFrame {
 		panel.setBackground(new Color(148, 0, 211));
 		panel.setBounds(0, 54, 674, 10);
 		contentPane.add(panel);
-		
+		// comment
 		JLabel lblNewLabel = new JLabel("Bienvenu a votre Librairie");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.ITALIC, 32));
 		lblNewLabel.setForeground(new Color(240, 255, 255));
