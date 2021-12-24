@@ -16,12 +16,14 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Button;
 import javax.swing.JTextField;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 public class AdminPanel extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-
+	private JTable table;
 	/**
 	 * Launch the application.
 	 */
@@ -150,5 +152,34 @@ public class AdminPanel extends JFrame {
 		catalogueBtn_1_1.setActionCommand("Login");
 		catalogueBtn_1_1.setBounds(10, 275, 153, 42);
 		contentPane.add(catalogueBtn_1_1);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBackground(new Color(148, 0, 211));
+		scrollPane.setBounds(189, 128, 485, 222);
+		contentPane.add(scrollPane);
+		
+		String[] columnNames = {"ID",
+                "Categorie",
+                "Nom Complet",
+                "Adress",
+                "Supprimer",
+                };
+		
+		Object[][] data = {
+			    {"KathySmith",
+			     "Snowboarding", new Integer(5), new Boolean(false),"delete"},
+			    {"JohnDoe",
+			     "Rowing", new Integer(3), new Boolean(true) ,"delete"},
+			    {"SueBlack",
+			     "Knitting", new Integer(2), new Boolean(false),"delete"},
+			    {"JaneWhite",
+			     "Speed reading", new Integer(20), new Boolean(true),"delete"},
+			    {"JoeBrown",
+			     "Pool", new Integer(10), new Boolean(false),"delete"}
+			};
+		table = new JTable(data, columnNames);
+		table.setBackground(new Color(148, 0, 211));
+		scrollPane.setViewportView(table);
+		scrollPane.setBackground(new Color(148, 0, 211));
 	}
 }
