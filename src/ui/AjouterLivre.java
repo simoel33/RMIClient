@@ -16,11 +16,15 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Button;
 import javax.swing.JTextField;
+import javax.swing.JComboBox;
 
-public class AdminPanel extends JFrame {
+public class AjouterLivre extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
 
 	/**
 	 * Launch the application.
@@ -41,7 +45,7 @@ public class AdminPanel extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AdminPanel() {
+	public AjouterLivre() {
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Home.class.getResource("/layouts/biblioindex.jpg")));
 		setBackground(new Color(65, 105, 225));
@@ -58,7 +62,7 @@ public class AdminPanel extends JFrame {
 		panel.setBounds(0, 54, 674, 10);
 		contentPane.add(panel);
 		// comment
-		JLabel lblNewLabel = new JLabel("Bienvenue Admin");
+		JLabel lblNewLabel = new JLabel("Ajouter Un Livre");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.ITALIC, 32));
 		lblNewLabel.setForeground(new Color(240, 255, 255));
 		lblNewLabel.setBounds(214, 11, 410, 32);
@@ -74,7 +78,6 @@ public class AdminPanel extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				UserInfos userInfos = new UserInfos();
 				userInfos.setVisible(true);
-				
 			}
 		});
 		registerBtn.setFont(new Font("Times New Roman", Font.ITALIC, 14));
@@ -89,7 +92,7 @@ public class AdminPanel extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				EmprunterLivre empruneter = new EmprunterLivre();
 				empruneter.setVisible(true);
-			}
+				}
 		});
 		catalogueBtn.setForeground(new Color(255, 255, 255));
 		catalogueBtn.setFont(new Font("Times New Roman", Font.ITALIC, 14));
@@ -112,38 +115,76 @@ public class AdminPanel extends JFrame {
 		catalogueBtn_1.setBounds(10, 211, 153, 42);
 		contentPane.add(catalogueBtn_1);
 		
-		JLabel lblVerfierLexistanceDe = new JLabel("Verfier l'existance de l'usager");
+		JLabel lblVerfierLexistanceDe = new JLabel("Ajouter un Nouveau Livre");
 		lblVerfierLexistanceDe.setForeground(new Color(240, 255, 255));
 		lblVerfierLexistanceDe.setFont(new Font("Times New Roman", Font.ITALIC, 12));
 		lblVerfierLexistanceDe.setBounds(343, 57, 153, 32);
 		contentPane.add(lblVerfierLexistanceDe);
 		
+		JLabel lblCin = new JLabel("ISBN");
+		lblCin.setForeground(new Color(240, 255, 255));
+		lblCin.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblCin.setBounds(235, 96, 55, 32);
+		contentPane.add(lblCin);
+		
 		textField = new JTextField();
+		textField.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		textField.setBackground(new Color(255, 255, 204));
-		textField.setBounds(351, 88, 113, 26);
+		textField.setForeground(new Color(0, 0, 0));
+		textField.setBounds(353, 96, 159, 32);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Verefier");
-		btnNewButton.setFont(new Font("Times New Roman", Font.PLAIN, 11));
+		textField_1 = new JTextField();
+		textField_1.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		textField_1.setBackground(new Color(255, 255, 204));
+		textField_1.setForeground(new Color(0, 0, 0));
+		textField_1.setColumns(10);
+		textField_1.setBounds(353, 150, 159, 32);
+		contentPane.add(textField_1);
+		
+		JLabel lblCategorie = new JLabel("Editeur");
+		lblCategorie.setForeground(new Color(240, 255, 255));
+		lblCategorie.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblCategorie.setBounds(235, 197, 86, 32);
+		contentPane.add(lblCategorie);
+		
+		JButton btnNewButton = new JButton("Ajouter");
 		btnNewButton.setBackground(new Color(153, 51, 255));
+		btnNewButton.setFont(new Font("Times New Roman", Font.ITALIC, 14));
 		btnNewButton.setForeground(new Color(255, 255, 255));
-		btnNewButton.setBounds(474, 87, 89, 28);
+		btnNewButton.setBounds(353, 296, 159, 32);
 		contentPane.add(btnNewButton);
 		
-		JLabel lblCin = new JLabel("CIN:");
-		lblCin.setForeground(new Color(240, 255, 255));
-		lblCin.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		lblCin.setBounds(303, 85, 30, 32);
-		contentPane.add(lblCin);
+		JLabel lblTitre = new JLabel("Titre");
+		lblTitre.setForeground(new Color(240, 255, 255));
+		lblTitre.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblTitre.setBounds(235, 154, 55, 32);
+		contentPane.add(lblTitre);
+		
+		textField_2 = new JTextField();
+		textField_2.setForeground(Color.BLACK);
+		textField_2.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		textField_2.setColumns(10);
+		textField_2.setBackground(new Color(255, 255, 204));
+		textField_2.setBounds(353, 196, 159, 34);
+		contentPane.add(textField_2);
+		
+		textField_3 = new JTextField();
+		textField_3.setForeground(Color.BLACK);
+		textField_3.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		textField_3.setColumns(10);
+		textField_3.setBackground(new Color(255, 255, 204));
+		textField_3.setBounds(353, 253, 159, 32);
+		contentPane.add(textField_3);
+		
+		JLabel lblAuteur = new JLabel("Auteur");
+		lblAuteur.setForeground(new Color(240, 255, 255));
+		lblAuteur.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblAuteur.setBounds(235, 253, 86, 32);
+		contentPane.add(lblAuteur);
 		
 		JButton catalogueBtn_1_1 = new JButton("Ajouter Livre");
-		catalogueBtn_1_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				AjouterLivre ajouterLivre = new AjouterLivre();
-				ajouterLivre.setVisible(true);
-			}
-		});
 		catalogueBtn_1_1.setForeground(Color.WHITE);
 		catalogueBtn_1_1.setFont(new Font("Times New Roman", Font.ITALIC, 14));
 		catalogueBtn_1_1.setBackground(new Color(153, 0, 255));

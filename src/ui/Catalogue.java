@@ -16,11 +16,14 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Button;
 import javax.swing.JTextField;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
-public class AdminPanel extends JFrame {
+public class Catalogue extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -41,7 +44,7 @@ public class AdminPanel extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AdminPanel() {
+	public Catalogue() {
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Home.class.getResource("/layouts/biblioindex.jpg")));
 		setBackground(new Color(65, 105, 225));
@@ -54,22 +57,23 @@ public class AdminPanel extends JFrame {
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(148, 0, 211));
 		panel.setBounds(0, 54, 674, 10);
+		panel.setBackground(new Color(148, 0, 211));
 		contentPane.add(panel);
 		// comment
-		JLabel lblNewLabel = new JLabel("Bienvenue Admin");
+		JLabel lblNewLabel = new JLabel("Catalogue");
+		lblNewLabel.setBounds(280, 11, 233, 32);
 		lblNewLabel.setFont(new Font("Times New Roman", Font.ITALIC, 32));
 		lblNewLabel.setForeground(new Color(240, 255, 255));
-		lblNewLabel.setBounds(214, 11, 410, 32);
 		contentPane.add(lblNewLabel);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(148, 0, 211));
 		panel_1.setBounds(179, 64, 10, 276);
+		panel_1.setBackground(new Color(148, 0, 211));
 		contentPane.add(panel_1);
 		
 		JButton registerBtn = new JButton("Inscription");
+		registerBtn.setBounds(10, 75, 153, 42);
 		registerBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				UserInfos userInfos = new UserInfos();
@@ -81,10 +85,10 @@ public class AdminPanel extends JFrame {
 		registerBtn.setForeground(new Color(255, 255, 255));
 		registerBtn.setBackground(new Color(153, 0, 255));
 		registerBtn.setActionCommand("Login");
-		registerBtn.setBounds(10, 75, 153, 42);
 		contentPane.add(registerBtn);
 		
 		JButton catalogueBtn = new JButton("Emprunter");
+		catalogueBtn.setBounds(10, 144, 153, 42);
 		catalogueBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				EmprunterLivre empruneter = new EmprunterLivre();
@@ -95,49 +99,43 @@ public class AdminPanel extends JFrame {
 		catalogueBtn.setFont(new Font("Times New Roman", Font.ITALIC, 14));
 		catalogueBtn.setBackground(new Color(153, 0, 255));
 		catalogueBtn.setActionCommand("Login");
-		catalogueBtn.setBounds(10, 144, 153, 42);
 		contentPane.add(catalogueBtn);
 		
 		JButton catalogueBtn_1 = new JButton("Catalogue");
-		catalogueBtn_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Catalogue catalogue = new Catalogue();
-				catalogue.setVisible(true);
-			}
-		});
+		catalogueBtn_1.setBounds(10, 211, 153, 42);
 		catalogueBtn_1.setForeground(Color.WHITE);
 		catalogueBtn_1.setFont(new Font("Times New Roman", Font.ITALIC, 14));
 		catalogueBtn_1.setBackground(new Color(153, 0, 255));
 		catalogueBtn_1.setActionCommand("Login");
-		catalogueBtn_1.setBounds(10, 211, 153, 42);
 		contentPane.add(catalogueBtn_1);
 		
-		JLabel lblVerfierLexistanceDe = new JLabel("Verfier l'existance de l'usager");
+		JLabel lblVerfierLexistanceDe = new JLabel("listes des livres");
+		lblVerfierLexistanceDe.setBounds(360, 58, 153, 32);
 		lblVerfierLexistanceDe.setForeground(new Color(240, 255, 255));
 		lblVerfierLexistanceDe.setFont(new Font("Times New Roman", Font.ITALIC, 12));
-		lblVerfierLexistanceDe.setBounds(343, 57, 153, 32);
 		contentPane.add(lblVerfierLexistanceDe);
 		
 		textField = new JTextField();
+		textField.setBounds(412, 91, 113, 26);
 		textField.setBackground(new Color(255, 255, 204));
-		textField.setBounds(351, 88, 113, 26);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Verefier");
+		JButton btnNewButton = new JButton("Chercher");
+		btnNewButton.setBounds(535, 89, 89, 28);
 		btnNewButton.setFont(new Font("Times New Roman", Font.PLAIN, 11));
 		btnNewButton.setBackground(new Color(153, 51, 255));
 		btnNewButton.setForeground(new Color(255, 255, 255));
-		btnNewButton.setBounds(474, 87, 89, 28);
 		contentPane.add(btnNewButton);
 		
-		JLabel lblCin = new JLabel("CIN:");
+		JLabel lblCin = new JLabel("Chercher | auteur | editeur | emprunteur");
+		lblCin.setBounds(189, 88, 213, 32);
 		lblCin.setForeground(new Color(240, 255, 255));
 		lblCin.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		lblCin.setBounds(303, 85, 30, 32);
 		contentPane.add(lblCin);
 		
 		JButton catalogueBtn_1_1 = new JButton("Ajouter Livre");
+		catalogueBtn_1_1.setBounds(10, 275, 153, 42);
 		catalogueBtn_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AjouterLivre ajouterLivre = new AjouterLivre();
@@ -148,7 +146,38 @@ public class AdminPanel extends JFrame {
 		catalogueBtn_1_1.setFont(new Font("Times New Roman", Font.ITALIC, 14));
 		catalogueBtn_1_1.setBackground(new Color(153, 0, 255));
 		catalogueBtn_1_1.setActionCommand("Login");
-		catalogueBtn_1_1.setBounds(10, 275, 153, 42);
 		contentPane.add(catalogueBtn_1_1);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(189, 128, 485, 222);
+		contentPane.add(scrollPane);
+		
+		String[] columnNames = {"ISBN",
+                "Titre",
+                "Autteur",
+                "Editeur",
+                "Emprunteur",
+                "Delete"};
+		
+		Object[][] data = {
+			    {"Kathy", "Smith",
+			     "Snowboarding", new Integer(5), new Boolean(false),"delete"},
+			    {"John", "Doe",
+			     "Rowing", new Integer(3), new Boolean(true) ,"delete"},
+			    {"Sue", "Black",
+			     "Knitting", new Integer(2), new Boolean(false),"delete"},
+			    {"Jane", "White",
+			     "Speed reading", new Integer(20), new Boolean(true),"delete"},
+			    {"Joe", "Brown",
+			     "Pool", new Integer(10), new Boolean(false),"delete"}
+			};
+		table = new JTable(data, columnNames);
+		table.setBackground(new Color(148, 0, 211));
+		scrollPane.setViewportView(table);
+		scrollPane.setBackground(new Color(148, 0, 211));
+	
+		
+		
+		
 	}
 }

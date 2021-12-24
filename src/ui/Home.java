@@ -7,18 +7,17 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.Button;
 
 public class Home extends JFrame {
 
 	private JPanel contentPane;
+    public static JFrame frame = new JFrame();
 
 	/**
 	 * Launch the application.
@@ -83,9 +82,13 @@ public class Home extends JFrame {
 		
 		JButton registerBtn = new JButton("Inscription");
 		registerBtn.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				UserInfos userInfos = new UserInfos();
 				userInfos.setVisible(true);
+				//Home.class.dispose();
+				frame.dispose();
+				
 			}
 		});
 		registerBtn.setFont(new Font("Times New Roman", Font.ITALIC, 14));
@@ -110,6 +113,12 @@ public class Home extends JFrame {
 		contentPane.add(catalogueBtn);
 		
 		JButton catalogueBtn_1 = new JButton("Catalogue");
+		catalogueBtn_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Catalogue catalogue = new Catalogue();
+				catalogue.setVisible(true);
+			}
+		});
 		catalogueBtn_1.setForeground(Color.WHITE);
 		catalogueBtn_1.setFont(new Font("Times New Roman", Font.ITALIC, 14));
 		catalogueBtn_1.setBackground(new Color(153, 0, 255));

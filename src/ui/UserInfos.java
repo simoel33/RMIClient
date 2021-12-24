@@ -100,6 +100,12 @@ public class UserInfos extends JFrame {
 		contentPane.add(catalogueBtn);
 		
 		JButton catalogueBtn_1 = new JButton("Catalogue");
+		catalogueBtn_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Catalogue catalogue = new Catalogue();
+				catalogue.setVisible(true);
+			}
+		});
 		catalogueBtn_1.setForeground(Color.WHITE);
 		catalogueBtn_1.setFont(new Font("Times New Roman", Font.ITALIC, 14));
 		catalogueBtn_1.setBackground(new Color(153, 0, 255));
@@ -162,5 +168,19 @@ public class UserInfos extends JFrame {
 		comboBox.addItem("Etudiant");
 		comboBox.addItem("Professeur");
 		contentPane.add(comboBox);
+		
+		JButton catalogueBtn_1_1 = new JButton("Ajouter Livre");
+		catalogueBtn_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AjouterLivre ajouterLivre = new AjouterLivre();
+				ajouterLivre.setVisible(true);
+			}
+		});
+		catalogueBtn_1_1.setForeground(Color.WHITE);
+		catalogueBtn_1_1.setFont(new Font("Times New Roman", Font.ITALIC, 14));
+		catalogueBtn_1_1.setBackground(new Color(153, 0, 255));
+		catalogueBtn_1_1.setActionCommand("Login");
+		catalogueBtn_1_1.setBounds(10, 280, 153, 42);
+		contentPane.add(catalogueBtn_1_1);
 	}
 }

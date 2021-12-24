@@ -98,6 +98,8 @@ public class Login extends JFrame {
 		JButton catalogueBtn = new JButton("Catalogue");
 		catalogueBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Catalogue catalogue = new Catalogue();
+				catalogue.setVisible(true);
 			}
 		});
 		catalogueBtn.setForeground(new Color(255, 255, 255));
@@ -106,14 +108,6 @@ public class Login extends JFrame {
 		catalogueBtn.setActionCommand("Login");
 		catalogueBtn.setBounds(10, 213, 153, 42);
 		contentPane.add(catalogueBtn);
-		
-		JButton catalogueBtn_1 = new JButton("Catalogue");
-		catalogueBtn_1.setForeground(Color.WHITE);
-		catalogueBtn_1.setFont(new Font("Times New Roman", Font.ITALIC, 14));
-		catalogueBtn_1.setBackground(new Color(153, 0, 255));
-		catalogueBtn_1.setActionCommand("Login");
-		catalogueBtn_1.setBounds(10, 273, 153, 42);
-		contentPane.add(catalogueBtn_1);
 		
 		loginField = new JTextField();
 		loginField.setBackground(new Color(255, 255, 204));
@@ -148,5 +142,19 @@ public class Login extends JFrame {
 		passwordField.setBackground(new Color(255, 255, 204));
 		passwordField.setBounds(368, 199, 189, 35);
 		contentPane.add(passwordField);
+		
+		JButton catalogueBtn_1_1 = new JButton("Ajouter Livre");
+		catalogueBtn_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AjouterLivre ajouterLivre = new AjouterLivre();
+				ajouterLivre.setVisible(true);
+			}
+		});
+		catalogueBtn_1_1.setForeground(Color.WHITE);
+		catalogueBtn_1_1.setFont(new Font("Times New Roman", Font.ITALIC, 14));
+		catalogueBtn_1_1.setBackground(new Color(153, 0, 255));
+		catalogueBtn_1_1.setActionCommand("Login");
+		catalogueBtn_1_1.setBounds(10, 279, 153, 42);
+		contentPane.add(catalogueBtn_1_1);
 	}
 }
