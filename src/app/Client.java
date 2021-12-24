@@ -14,7 +14,7 @@ public class Client {
 
 	            System.out.println(u.getAdress());
 	            Livre l=(Livre)stub.findBookById(1233);
-	            stub.Emprunter(l, u, "2021-12-31");
+	            //stub.Emprunter(l, u, "2021-12-31");
 	           
 	            
 	           
